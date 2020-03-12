@@ -6,6 +6,7 @@
     <title>nCoV-全国分布图</title>
     <!-- 1. 引入echarts -->
     <script src="./js/echarts.min.js"></script>
+    <script src="./js/china.js"></script>
   </head>
   <body>
     <!-- 2. 定义dom容器 -->
@@ -23,7 +24,17 @@
           left: 'center'
         },
         // 图表背景色
-        backgroundColor: '#f7f7f7'
+        backgroundColor: '#f7f7f7',
+        series: [
+          {
+            type: 'map', // 当前图表的类型
+            map: 'china', // 当前地图是中国地图
+            label: {
+              // 覆盖物设置
+              show: true
+            }  
+          }
+        ]
       })
     </script>
   </body>
