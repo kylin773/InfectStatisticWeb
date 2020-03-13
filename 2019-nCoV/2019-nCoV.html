@@ -33,37 +33,55 @@
             })
           })
           // console.log(filterData) // [{name: '湖北', value: 5556,deadCount: 6, curedCount: 4}, ...]
-      // 配置图标数据信息
-      myChart.setOption({
-        title: {
-          // 标题
-          text: 'nCoV-全国疫情统计可视化地图',
-          subtext: '221701216-李舸',
-          left: 'center'
-        },
-        // 图表背景色
-        backgroundColor: '#f7f7f7',
-        tooltip: {
+          // 配置图标数据信息
+          myChart.setOption({
+            title: {
+              // 标题
+              text: 'nCoV-全国疫情统计可视化地图',
+              subtext: '221701216-李舸',
+              left: 'center',
+              top: 10
+            },
+            // 图表背景色
+            backgroundColor: '#f7f7f7',
+            visualMap: [
+              {
+                type: 'piecewise', // continuous连续的 piecewise分段
+                pieces: [
+                  { gt: 10000 }, // (10000, Infinity]
+                  { gt: 1000, lte: 9999 }, // (1000, 9999]
+                  { gt: 100, lte: 999 }, // (100, 999]
+                  { gt: 10, lte: 99 }, // (10, 99]
+                  { gt: 0, lte: 9 } // (0, 9]
+                ],
+                inRange: {
+                  color: ['#fdebcf', '#f59e83', '#e55a4e', '#cb2a2f', '#811c24']
+                }
+              }
+            ],
+            tooltip: {
               // triggerOn: 'click',
               formatter: function(params) {
                 // 提示框浮层内容格式器，支持字符串模板和回调函数两种形式
                 // console.log(params, 'formatter')
-                return `地区：${params.name}<br/>确诊：${params.value || 0}人<br/>治愈：${(params.data && params.data.curedCount) || 0}人<br/>死亡：${(params.data && params.data.deadCount) || 0}人<br/>`
+                return `地区：${params.name}<br/>确诊：${params.value || 0}人<br/>
+                  治愈：${(params.data && params.data.curedCount) || 0}人<br/>
+                  死亡：${(params.data && params.data.deadCount) || 0}人<br/>`
               }
             },
-        series: [
-          {
-            type: 'map', // 当前图表的类型
-            map: 'china', // 当前地图是中国地图
-            label: {
-              // 覆盖物设置
-              show: true
-            },
-            data: filterData  
-          }
-        ]
-      })
-    }) 
+            series: [
+              {
+                type: 'map', // 当前图表的类型
+                map: 'china', // 当前地图是中国地图
+                label: {
+                  // 覆盖物设置
+                  show: true
+                },
+                data: filterData  
+              }
+            ]
+          })
+        }) 
     </script>
   </body>
 </html>
