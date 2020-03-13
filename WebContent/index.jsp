@@ -32,6 +32,13 @@
                     left: 'center'
                 },
                 backgroundColor: '#f7f7f7',
+                tooltip: {
+                	formatter: function(params) {
+                		console.log(params, 'formatter');
+                		return `地区：`+ params.name +` <br/>确诊：` + params.value + `人<br/>死亡：`
+                		+ params.data.deadCount + `人`;
+                	},
+                },
                 series: [{
                     type: 'map',
                     map: 'china',
