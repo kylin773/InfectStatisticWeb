@@ -1,3 +1,4 @@
+<%@page import="com.alibaba.fastjson.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -12,16 +13,17 @@
 	 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="main" style="width: 800px;height:600px;"></div>
     <script type="text/javascript">
-    	
-    	fetch(`https://github.com/BlankerL/DXY-COVID-19-Data/blob/master/csv/DXYOverall.csv`).
-    	then(res => res.json()).then(res => {
-    		console.log(res)
-    	})
-    	<% 
-    	
-    	
-    	
-    	%>
+    $.ajax({
+        "url": "",
+        "type": "get",
+        "dataType": "json",
+        "success": function(data){
+
+        },
+        "error": function(data){
+
+        }
+    })
     
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
@@ -38,8 +40,8 @@
                 map: 'china',
                 label: {
                 	show: true
-                }
-                
+                },
+                data: []
             }]
         };
 

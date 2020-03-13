@@ -8,7 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public class InfectStatisticWeb {
 	
-	public JSONObject spider() {
+	public static JSONObject spider() {
 		
 		try {
 			String line;
@@ -33,8 +33,8 @@ public class InfectStatisticWeb {
 			//开始进行信息筛选，获得result转化为aray
 			JSONObject jsonObject = JSONObject.parseObject(sbBuilder.toString());
 			JSONArray array = JSONArray.parseArray(jsonObject.get("results").toString());
-			
 			JSONArray needArray = new JSONArray();
+			JSONObject needObj = new JSONObject();
 			//JSONObject jo2 = (JSONObject)jsonObject.get("results");
 			//System.out.printf(jsonObject.get("results").toString());
 			//System.out.printf(array.getString(0));
@@ -47,20 +47,19 @@ public class InfectStatisticWeb {
 				if (jo1.get("countryName").toString().equals("中国")) {
 					//JSONObject joNeed = new JSONObject();
 					//joNeed.entrySet()
-					needArray.add(jo1);
-					System.out.printf(jo1.get("provinceName").toString());
+					needObj.put(jo1.getString("provinceName"), jo1);
+					//System.out.printf(jo1.get("provinceName").toString());
 				}
 			}
-			JSONObject jo2 = (JSONObject)array.get(0);
+			//JSONObject jo2 = (JSONObject)array.get(0);
 			
-			
-			System.out.printf(jo2.get("countryName").toString());
+			return needObj;
+			//System.out.printf(needObj.toJSONString());
 		}
 		catch (Exception e) {
 		    e.printStackTrace();
 		    return null;
 		}
-		return null;
 	}
 
 }

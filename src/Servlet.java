@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * Servlet implementation class Servlet
  */
@@ -27,8 +29,11 @@ public class Servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.setAttribute("data", 0);
+		
+		//request.setAttribute("data", getDate());
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		//request.setAttribute("data", 0);
 	}
 
 	/**
@@ -40,9 +45,6 @@ public class Servlet extends HttpServlet {
 	}
 	
 	private Object getDate() {
-
-
-        
 		
 		return null;
 	}
