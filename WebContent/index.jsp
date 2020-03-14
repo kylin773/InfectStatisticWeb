@@ -23,14 +23,67 @@
 	</script>
 	
 	 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-	<div id="overall" style="width: 800px;height:200px;">
-	<% JSONObject obj = (JSONObject)request.getAttribute("overall"); %>
-		<div class="overallItem">现有确诊:<%=obj.get("currentConfirmedCount").toString() %></div>
-		<div class="overallItem">累计确诊::<%=obj.get("confirmedCount").toString() %></div>
-		<div class="overallItem">累计治愈::<%=obj.get("curedCount").toString() %></div>
-		<div class="overallItem">累计死亡::<%=obj.get("deadCount").toString() %></div>
-	</div>
+	
+    <div id="overall" style="margin: auto; width: 800px;height:300px;">
+    <br/>
+    <br/>
+    <div style="text-align: center;">
+      <h1>nCoV疫情统计</h1>
+    </div>
+      <table width="800" style="text-align: center;">
+        <tbody><tr>
+          <td style="font-weight: bolder;">现存确诊</td>
+          
+          <td style="font-weight: bolder;">境外输入</td>
+          
+          <td style="font-weight: bolder;">现存重症</td>
+        </tr>
+        <tr>
+          <% JSONObject obj = (JSONObject)request.getAttribute("overall"); %>
+          <td style="font-weight: bolder; font-size:xx-large; color:crimson;">
+          <%=obj.get("currentConfirmedCount").toString() %></td>
+          <td style="font-weight: bolder; font-size:xx-large; color:cornflowerblue;">
+          <%=obj.get("suspectedCount").toString() %></td>
+          <td style="font-weight: bolder; font-size:xx-large; color:saddlebrown;">
+          <%=obj.get("seriousCount").toString() %></td>
+        </tr>
+        <tr>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:crimson;">
+         	 <%=obj.get("confirmedIncr").toString() %></span></td>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:cornflowerblue;">
+            <%=obj.get("suspectedIncr").toString() %></span></td>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:saddlebrown;">
+            <%=obj.get("seriousIncr").toString() %></span></td>
+        </tr>
+        <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+        <tr>
+          <td style="font-weight: bolder;">累计确诊</td>
+          
+          <td style="font-weight: bolder;">累计死亡</td>
+          <!-- <td class="tableSplit" rowspan="3">|</td> -->
+          <td style="font-weight: bolder;">累计治愈</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bolder; font-size:xx-large; color:coral;">
+          <%=obj.get("confirmedCount").toString() %></td>
+          <td style="font-weight: bolder; font-size:xx-large; color:dimgray;">
+          <%=obj.get("deadCount").toString() %></td>
+          <td style="font-weight: bolder; font-size:xx-large; color:forestgreen;">
+          <%=obj.get("curedCount").toString() %></td>
+        </tr>
+        <tr>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:coral;">
+          <%=obj.get("confirmedIncr").toString() %></span></td>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:dimgray;">
+          <%=obj.get("deadIncr").toString() %></span></td>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:forestgreen;">
+          <%=obj.get("curedIncr").toString() %></span></td>
+        </tr>
+      </tbody></table>
+      </div>
+      <br/>
     <div id="map" style="width: 800px;height:600px;"></div>
+    <br/>
     <div id="lineChart" style="width: 800px;height:600px;"></div>
     
     <script type="text/javascript">
@@ -86,29 +139,29 @@
                       data: ['确诊','疑似','治愈','死亡']
                   },
                   xAxis: {
-                      data:[]
+                      data:['18日', '19日', '20日', '11日', '12日', '13日', '14日']
                   },
                   yAxis: {},
                   series: [
                       {
                           name: '确诊',
                           type: 'line',
-                          data:[]
+                          data:[820, 932, 901, 934, 1290, 1330, 1320]
                       },
                       {
                           name: '疑似',
                           type: 'line',
-                          data:[]
+                          data:[220, 182, 191, 234, 290, 330, 310]
                       },
                       {
                           name: '治愈',
                           type: 'line',
-                          data:[]
+                          data:[150, 232, 201, 154, 190, 330, 410]
                       },
                       {
                           name: '死亡',
                           type: 'line',
-                          data:[]
+                          data:[120, 132, 101, 134, 90, 230, 210]
                       }
                   ]
               },true);
