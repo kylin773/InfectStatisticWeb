@@ -4,13 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nCoV-全国分布图</title>
+    
     <!-- 1. 引入echarts -->
     <script src="./js/echarts.min.js"></script>
     <script src="./js/china.js"></script>
   </head>
   <body>
+    
+    <!-- 数字疫情板块 -->
+    <div style="text-align: center;">
+      <h1>nCoV疫情统计</h1>
+    </div>
+    <div id="overall" style="margin: auto; width: 800px;height:200px;">
+      <table width="800" style="text-align: center;">
+        <tbody><tr>
+          <td style="font-weight: bolder;">现存确诊</td>
+          
+          <td style="font-weight: bolder;">境外输入</td>
+          
+          <td style="font-weight: bolder;">现存重症</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bolder; font-size:xx-large; color:crimson;">12178</td>
+          <td style="font-weight: bolder; font-size:xx-large; color:cornflowerblue;">95</td>
+          <td style="font-weight: bolder; font-size:xx-large; color:saddlebrown;">3610</td>
+        </tr>
+        <tr>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:crimson;">-1429</span></td>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:cornflowerblue;">+7</span></td>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:saddlebrown;">-410</span></td>
+        </tr>
+        <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+        <tr>
+          <td style="font-weight: bolder;">累计确诊</td>
+          
+          <td style="font-weight: bolder;">累计死亡</td>
+          <!-- <td class="tableSplit" rowspan="3">|</td> -->
+          <td style="font-weight: bolder;">累计治愈</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bolder; font-size:xx-large; color:coral;">81026</td>
+          <td style="font-weight: bolder; font-size:xx-large; color:dimgray;">3194</td>
+          <td style="font-weight: bolder; font-size:xx-large; color:forestgreen;">65654</td>
+        </tr>
+        <tr>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:coral;">+23</span></td>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:dimgray;">+14</span></td>
+          <td class="tableSmall">较昨日<span style="font-weight: bolder; color:forestgreen;">+1438</span></td>
+        </tr>
+      </tbody></table>
+      </div>
+  
     <!-- 2. 定义dom容器 -->
-    <div id="container" style="width: 800px;height: 600px"></div>
+    <div id="container" style="width: 1296px;height: 972px"></div>
     <!-- 3. 将图标配置应用到容器中 -->
     <script>
       // 将图标实例化和容器关联
@@ -35,10 +81,12 @@
           // console.log(filterData) // [{name: '湖北', value: 5556,deadCount: 6, curedCount: 4}, ...]
           // 配置图标数据信息
           myChart.setOption({
+            formatter: '{tc|Center Title}{titleBg|}',
+
             title: {
               // 标题
               text: 'nCoV-全国疫情统计可视化地图',
-              subtext: '221701216-李舸',
+              // subtext: '221701216-李舸',
               left: 'center',
               top: 10
             },
