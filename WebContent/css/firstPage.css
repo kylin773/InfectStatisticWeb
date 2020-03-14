@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+body {
+	background-color: pink;
+}
+
+#map {
+	margin:0 auto;
+}
+
+#overall {
+	margin:0 auto;
+}
+
+.overallItem {
+	display: inline;
+}
+
+#lineChart {
+	margin: 0 auto;
+}
+
