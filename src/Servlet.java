@@ -35,16 +35,13 @@ public class Servlet extends HttpServlet {
 		String province = (String)request.getParameter("province");
 		
 		if (province != null) {
-			System.out.println(province);
 			request.setAttribute("province", province);
 			request.setAttribute("provinceData", InfectStatisticWeb.dealDetail(province));
 			request.getRequestDispatcher("detail.jsp").forward(request, response);
 		}
 		else {
-			System.out.println("noprovince");
 			request.setAttribute("data", InfectStatisticWeb.dealData());
 			request.setAttribute("overall", InfectStatisticWeb.dealOverall());
-
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
@@ -56,7 +53,7 @@ public class Servlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.setCharacterEncoding("utf-8");
 		//response.getWriter().println(InfectStatisticWeb.dealData());
-		//doGet(request, response);
+		doGet(request, response);
 	}
 
 }
