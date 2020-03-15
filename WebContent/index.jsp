@@ -22,9 +22,30 @@
 	
 	 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 	
-    <div id="overall" style="margin: auto; width: 800px;height:300px;">
+    <div id="overall" style="margin: auto; width: 800px;height:330px;">
     <br/>
     <br/>
+    
+    <!-- 日期  -->
+    <div class="content">
+    	<form method="get">
+    		<div>
+    			<label>日期：</label>
+    			<input type="date" id="txtDate" />
+    		</div>
+    		<div>
+    			<input type="button" id="btn" value="提交">
+    		</div>
+    	</form>
+    </div>
+    <script type="text/javascript"> //获取数据
+    	$(document).ready(function(){
+    		$("#btn").click(function(){
+    			alert(document.getElementById("txtDate").value); 
+    		});
+    	});
+    </script>
+    
     <div style="text-align: center;">
       <h1>nCoV疫情统计</h1>
     </div>
@@ -78,6 +99,7 @@
           <td class="tableSmall">较昨日<span style="font-weight: bolder; color:forestgreen;">
           <%=obj.get("curedIncr").toString() %></span></td>
         </tr>
+        
       </tbody></table>
       </div>
       <br/>
