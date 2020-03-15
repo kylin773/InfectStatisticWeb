@@ -32,7 +32,7 @@
                       trigger: 'axis',
                   },
                   legend: {
-                      data: ['确诊','治愈','死亡']
+                      data: ['累计确诊','治愈','死亡']
                   },
                   xAxis: {
                       data:[
@@ -47,7 +47,7 @@
                   yAxis: {},
                   series: [
                       {
-                          name: '确诊',
+                          name: '累计确诊',
                           type: 'line',
                           data:[<% 
                   		for (int i = size - 10; size > i; i++) {
