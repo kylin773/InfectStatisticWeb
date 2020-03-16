@@ -75,7 +75,7 @@ public class InfectStatisticWeb {
 //		}
 //		catch(Exception e) {
 			try {			
-				File jsonFile = new File("F:\\Eclipse\\eclipse-ee-workspace\\InfectStatisticWeb\\src\\DXYArea.json");
+				File jsonFile = new File("/usr/local/apache-tomcat9/webapps/InfectStatisticWeb/DXYOverall.json");
 				FileReader fileReader = new FileReader(jsonFile);
 				
 				BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(jsonFile),"utf-8"));
@@ -116,7 +116,7 @@ public class InfectStatisticWeb {
 	}
 	
 	public static JSONObject dealOverall() {
-		String url = "https://lab.isaaclin.cn/nCoV/api/overall";
+		//String url = "https://lab.isaaclin.cn/nCoV/api/overall";
 		JSONArray array;
 //		
 //		try {
@@ -126,7 +126,7 @@ public class InfectStatisticWeb {
 //		} 
 //		catch (Exception e) {
 			try {			
-				File jsonFile = new File("F:\\Eclipse\\eclipse-ee-workspace\\InfectStatisticWeb\\src\\DXYOverall.json");
+				File jsonFile = new File("/usr/local/apache-tomcat9/webapps/InfectStatisticWeb/DXYArea.json");
 				FileReader fileReader = new FileReader(jsonFile);
 				
 				BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(jsonFile),"utf-8"));

@@ -13,12 +13,6 @@
 </head>
 <body>
 
-	<% if (request.getAttribute("overall") == null) { %>
-		<jsp:forward page="infectServlet" />
-		%>
-	<%
-	}
-	%>
 	
 	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="overall" style="margin: auto; width: 800px;height:330px;">
