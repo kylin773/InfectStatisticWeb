@@ -15,7 +15,7 @@ import javafx.beans.property.SetProperty;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/Servlet")
+@WebServlet("/infectServlet")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,14 +34,23 @@ public class Servlet extends HttpServlet {
 		// TODO Auto-generated method stubr
 		String province = (String)request.getParameter("province");
 		
+//		if (province != null) {
+//			request.setAttribute("province", province);
+//			
+//			request.setAttribute("provinceData", InfectStatisticWeb.dealDetail(province));
+//			request.setAttribute("globalData", InfectStatisticWeb.dealGlobal());
+//			request.getRequestDispatcher("detail.jsp").forward(request, response);
+//		}
 		if (province != null) {
-			request.setAttribute("province", province);
+			request.setAttribute("province", province);		
 			request.setAttribute("provinceData", InfectStatisticWeb.dealDetail(province));
+			request.setAttribute("globalData", InfectStatisticWeb.dealGlobal());
 			request.getRequestDispatcher("detail.jsp").forward(request, response);
 		}
 		else {
 			request.setAttribute("data", InfectStatisticWeb.dealData());
 			request.setAttribute("overall", InfectStatisticWeb.dealOverall());
+			request.setAttribute("globalData", InfectStatisticWeb.dealGlobal());
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
