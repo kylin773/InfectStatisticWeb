@@ -28,8 +28,8 @@
 * 全国最近一周的**疫情趋势折线图**，能按日期查看截止当日全国的**确诊、疑似、治愈、死亡人数**。
 <img src="https://img2020.cnblogs.com/blog/1929986/202003/1929986-20200316152108781-2012482868.png" width="600px" height="350px" />
 * 可以选择**显示或隐藏**其中某条折线。
-<img src="https://img2020.cnblogs.com/blog/1929986/202003/1929986-20200316152631023-401475501.pn" width="600px" height="350px" />
+<img src="https://img2020.cnblogs.com/blog/1929986/202003/1929986-20200316152631023-401475501.png" width="600px" height="350px" />
 突出亮点，跟上潮流，获取全球数据并展示
 * **国外数据概览**  
-<img src="https://img2020.cnblogs.com/blog/1929986/202003/1929986-20200316195122460-841555329.png" width="600px" height="350px" />
+<img src="https://img2020.cnblogs.com/blog/1929986/202003/1929986-20200316223641296-1981792945.png" width="600px" height="350px" />
 
